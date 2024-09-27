@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block content%}
+ <div class="col-sm-10">
+    <h3 class="text-white my-5">Home Page</h3>
+    {% for post in posts %}
+    <div class="jumbotron jumbotron-fluid jumbo-color">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold">{{post.title}}</h1>
+            <p class="lead">{{post.desc}} </p>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div>
+        <span>
+            {% if page_obj.has_previous %}
+                <a href="">Previous</a>
+            {% endif %}
+    
+            <span>{{page_obj.number}}</span>
+    
+            {% if page_obj.has_next %}
+                <a href="">Next</a>
+            {% endif %}
+        </span>
+    </div>
+
+    
+</div>
+{% endblock content%}
+
+
